@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div>
             <Header></Header>
-            <h3>This is real Home page</h3>
+            {/* <h3>This is real Home page</h3> */}
             <Outlet></Outlet>
         </div>
     );
