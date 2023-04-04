@@ -2,7 +2,7 @@ import React from 'react';
 import './Friend.css';
 import { Link } from 'react-router-dom';
 const Friend = ({ friend }) => {
-    console.log(friend);
+    // console.log(friend);
     // const {id,name,address,company,email,phone,username,website}=friend;
     // const {street,suite,city,geo,zipcode}=address;
     // const {lat,lng}=geo;

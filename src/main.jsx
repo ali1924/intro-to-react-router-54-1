@@ -14,6 +14,8 @@ import Home from './components/Home/Home';
 import First from './components/First/First';
 import Friends from './components/Friends/Friends';
 import FriendDetail from './components/FriendDetail/FriendDetail';
+import Posts from './components/Post/Posts';
+import PostDetail from './components/PostDetail/PostDetail';
 
 // const router = createBrowserRouter([
 //   {
@@ -47,7 +49,10 @@ const router = createBrowserRouter([
       },
       {
         path: '/friend/:friendID',
-        element:<FriendDetail></FriendDetail>
+        element: <FriendDetail></FriendDetail>,
+        // loader: ({params}) => console.log(params)---object
+        // loader: ({params}) => console.log(params.friendID)---value
+        loader: ({ params }) => fetch(`https://jsonplaceholder.typicode.com/users/${params.friendID}`)
       },
       {
         path: '/about',
@@ -56,14 +61,25 @@ const router = createBrowserRouter([
       {
         path: 'contact',
         element: <Contact></Contact>
+      },
+      {
+        path: '/posts',
+        element: <Posts></Posts>,
+        loader: () => fetch('https://jsonplaceholder.typicode.com/posts')
+      },
+      {
+        path: '/post/:postID',
+        element: <PostDetail></PostDetail>,
+        loader: ({ params }) => fetch(`https://jsonplaceholder.typicode.com/posts/${params.postID}`)
       }
     ]
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    {/* <Header></Header> */}
-    <RouterProvider router={router}></RouterProvider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  //   {/* <Header></Header> */}
+  //   <RouterProvider router={router}></RouterProvider>
+  // </React.StrictMode>,
+  <RouterProvider router={router}></RouterProvider>
 )
