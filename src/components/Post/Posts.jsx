@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import SinglePost from '../SinglePost/SinglePost';
 
 const Posts = () => {
